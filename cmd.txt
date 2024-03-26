@@ -1,0 +1,467 @@
+Microsoft Windows [版本 10.0.19045.4170]
+(c) Microsoft Corporation。保留所有权利。
+
+C:\Users\Lenovo>cd C:\Users\Lenovo\Desktop\wxy\CPT-master\finetune\generation
+
+C:\Users\Lenovo\Desktop\wxy\CPT-master\finetune\generation>python run_gen.py --model_path C:\Users\Lenovo\.cache\huggingface\hub\models--fnlp--cpt-large\snapshots\f07323ad5818364d47fc17cc4088072cd2f5f46d --dataset adgen --data_dir demo_data
+train
+validation
+test
+03/22/2024 09:51:20 - WARNING - __main__ -   Process rank: 0, device: cuda:0, n_gpu: 1distributed training: True, 16-bits training: False
+03/22/2024 09:51:20 - INFO - __main__ -   Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+accelerator_config={'split_batches': False, 'dispatch_batches': None, 'even_batches': True, 'use_seedable_sampler': True},
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=True,
+do_predict=True,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=epoch,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_v2': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=2e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=output/adgen/6\runs\Mar22_09-51-19_DESKTOP-PC6Q6P1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=10.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=output/adgen/6,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=6,
+per_device_train_batch_size=6,
+predict_with_generate=True,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=output/adgen/6,
+save_on_each_node=False,
+save_only_model=False,
+save_safetensors=True,
+save_steps=500,
+save_strategy=no,
+save_total_limit=None,
+seed=6000,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=None,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+loading file vocab.txt
+loading file added_tokens.json
+loading file special_tokens_map.json
+loading file tokenizer_config.json
+loading file tokenizer.json
+loading configuration file C:\Users\Lenovo\.cache\huggingface\hub\models--fnlp--cpt-large\snapshots\f07323ad5818364d47fc17cc4088072cd2f5f46d\config.json
+Model config BartConfig {
+  "_name_or_path": "C:\\Users\\Lenovo\\.cache\\huggingface\\hub\\models--fnlp--cpt-large\\snapshots\\f07323ad5818364d47fc17cc4088072cd2f5f46d",
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartForConditionalGeneration"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 101,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 1024,
+  "decoder_attention_heads": 16,
+  "decoder_ffn_dim": 4096,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 4,
+  "decoder_start_token_id": 102,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 16,
+  "encoder_ffn_dim": 4096,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 24,
+  "eos_token_id": 102,
+  "forced_eos_token_id": 102,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "tokenizer_class": "BertTokenizer",
+  "transformers_version": "4.38.1",
+  "use_cache": true,
+  "vocab_size": 51271
+}
+
+loading configuration file C:\Users\Lenovo\.cache\huggingface\hub\models--fnlp--cpt-large\snapshots\f07323ad5818364d47fc17cc4088072cd2f5f46d\config.json
+Model config BartConfig {
+  "activation_dropout": 0.1,
+  "activation_function": "gelu",
+  "add_bias_logits": false,
+  "add_final_layer_norm": false,
+  "architectures": [
+    "BartForConditionalGeneration"
+  ],
+  "attention_dropout": 0.1,
+  "bos_token_id": 101,
+  "classif_dropout": 0.1,
+  "classifier_dropout": 0.0,
+  "d_model": 1024,
+  "decoder_attention_heads": 16,
+  "decoder_ffn_dim": 4096,
+  "decoder_layerdrop": 0.0,
+  "decoder_layers": 4,
+  "decoder_start_token_id": 102,
+  "dropout": 0.1,
+  "early_stopping": true,
+  "encoder_attention_heads": 16,
+  "encoder_ffn_dim": 4096,
+  "encoder_layerdrop": 0.0,
+  "encoder_layers": 24,
+  "eos_token_id": 102,
+  "forced_eos_token_id": 102,
+  "gradient_checkpointing": false,
+  "id2label": {
+    "0": "LABEL_0",
+    "1": "LABEL_1",
+    "2": "LABEL_2"
+  },
+  "init_std": 0.02,
+  "is_encoder_decoder": true,
+  "label2id": {
+    "LABEL_0": 0,
+    "LABEL_1": 1,
+    "LABEL_2": 2
+  },
+  "max_position_embeddings": 1024,
+  "model_type": "bart",
+  "no_repeat_ngram_size": 3,
+  "normalize_before": false,
+  "normalize_embedding": true,
+  "num_beams": 4,
+  "num_hidden_layers": 24,
+  "pad_token_id": 0,
+  "scale_embedding": false,
+  "task_specific_params": {
+    "summarization": {
+      "length_penalty": 1.0,
+      "max_length": 128,
+      "min_length": 12,
+      "num_beams": 4
+    },
+    "summarization_cnn": {
+      "length_penalty": 2.0,
+      "max_length": 142,
+      "min_length": 56,
+      "num_beams": 4
+    },
+    "summarization_xsum": {
+      "length_penalty": 1.0,
+      "max_length": 62,
+      "min_length": 11,
+      "num_beams": 6
+    }
+  },
+  "tokenizer_class": "BertTokenizer",
+  "transformers_version": "4.38.1",
+  "use_cache": true,
+  "vocab_size": 51271
+}
+
+loading weights file C:\Users\Lenovo\.cache\huggingface\hub\models--fnlp--cpt-large\snapshots\f07323ad5818364d47fc17cc4088072cd2f5f46d\model.safetensors
+Generate config GenerationConfig {
+  "bos_token_id": 101,
+  "decoder_start_token_id": 102,
+  "early_stopping": true,
+  "eos_token_id": 102,
+  "forced_eos_token_id": 102,
+  "no_repeat_ngram_size": 3,
+  "num_beams": 4,
+  "pad_token_id": 0
+}
+
+All model checkpoint weights were used when initializing CPTForConditionalGeneration.
+
+All the weights of CPTForConditionalGeneration were initialized from the model checkpoint at C:\Users\Lenovo\.cache\huggingface\hub\models--fnlp--cpt-large\snapshots\f07323ad5818364d47fc17cc4088072cd2f5f46d.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use CPTForConditionalGeneration for predictions without further training.
+Generation config file not found, using a generation config created from the model config.
+Map:   0%|                                                                             | 0/3290 [00:00<?, ? examples/s]D:\Python\lib\site-packages\transformers\tokenization_utils_base.py:3892: UserWarning: `as_target_tokenizer` is deprecated and will be removed in v5 of Transformers. You can tokenize your labels by using the argument `text_target` of the regular `__call__` method (either in the same call as your input texts if you use the same keyword arguments, or in a separate call.
+  warnings.warn(
+Map: 100%|█████████████████████████████████████████████████████████████████| 3290/3290 [00:11<00:00, 274.45 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████| 1098/1098 [00:03<00:00, 293.11 examples/s]
+Map: 100%|█████████████████████████████████████████████████████████████████| 1100/1100 [00:03<00:00, 284.09 examples/s]
+The following columns in the training set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running training *****
+  Num examples = 3,290
+  Num Epochs = 10
+  Instantaneous batch size per device = 6
+  Total train batch size (w. parallel, distributed & accumulation) = 6
+  Gradient Accumulation steps = 1
+  Total optimization steps = 5,490
+  Number of trainable parameters = 424,102,912
+{'loss': 1.1409, 'grad_norm': 2.757542133331299, 'learning_rate': 1.817850637522769e-05, 'epoch': 0.91}
+ 10%|███████▉                                                                       | 549/5490 [05:02<38:38,  2.13it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+Generate config GenerationConfig {
+  "bos_token_id": 101,
+  "decoder_start_token_id": 102,
+  "early_stopping": true,
+  "eos_token_id": 102,
+  "forced_eos_token_id": 102,
+  "max_length": 512,
+  "no_repeat_ngram_size": 3,
+  "num_beams": 4,
+  "pad_token_id": 0
+}
+
+D:\Python\lib\site-packages\transformers\generation\utils.py:1339: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed soon, in a future version. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+{'eval_loss': 0.6597685217857361, 'eval_rouge-1': 46.5406, 'eval_rouge-2': 22.9769, 'eval_rouge-l': 32.9451, 'eval_gen_len': 140.5492, 'eval_runtime': 2725.7664, 'eval_samples_per_second': 0.403, 'eval_steps_per_second': 0.067, 'epoch': 1.0}
+ 10%|███████▉                                                                       | 549/5490 [50:28<38:38,  2.13it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.6419, 'grad_norm': 3.1357340812683105, 'learning_rate': 1.6357012750455374e-05, 'epoch': 1.82}
+ 20%|███████████████▏                                                            | 1098/5490 [1:41:48<35:16,  2.08it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.5546132922172546, 'eval_rouge-1': 48.0276, 'eval_rouge-2': 22.0229, 'eval_rouge-l': 32.1636, 'eval_gen_len': 196.4153, 'eval_runtime': 3772.7644, 'eval_samples_per_second': 0.291, 'eval_steps_per_second': 0.049, 'epoch': 2.0}
+ 20%|███████████████▏                                                            | 1098/5490 [2:44:41<35:16,  2.08it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.5212, 'grad_norm': 1.975117802619934, 'learning_rate': 1.4535519125683062e-05, 'epoch': 2.73}
+ 30%|██████████████████████▊                                                     | 1647/5490 [3:53:14<29:42,  2.16it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.5185256004333496, 'eval_rouge-1': 50.9653, 'eval_rouge-2': 25.9311, 'eval_rouge-l': 35.8033, 'eval_gen_len': 159.2368, 'eval_runtime': 2838.4663, 'eval_samples_per_second': 0.387, 'eval_steps_per_second': 0.064, 'epoch': 3.0}
+ 30%|██████████████████████▊                                                     | 1647/5490 [4:40:33<29:42,  2.16it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.4477, 'grad_norm': 2.144341468811035, 'learning_rate': 1.2714025500910747e-05, 'epoch': 3.64}
+ 40%|██████████████████████████████▍                                             | 2196/5490 [5:33:59<26:57,  2.04it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.49395063519477844, 'eval_rouge-1': 48.9221, 'eval_rouge-2': 23.9901, 'eval_rouge-l': 33.7623, 'eval_gen_len': 168.326, 'eval_runtime': 3077.747, 'eval_samples_per_second': 0.357, 'eval_steps_per_second': 0.059, 'epoch': 4.0}
+ 40%|██████████████████████████████▍                                             | 2196/5490 [6:25:17<26:57,  2.04it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.3979, 'grad_norm': 2.392031669616699, 'learning_rate': 1.0892531876138435e-05, 'epoch': 4.55}
+ 50%|██████████████████████████████████████                                      | 2745/5490 [7:21:08<22:34,  2.03it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.4893759787082672, 'eval_rouge-1': 50.0387, 'eval_rouge-2': 24.3981, 'eval_rouge-l': 34.4437, 'eval_gen_len': 175.8224, 'eval_runtime': 3577.8144, 'eval_samples_per_second': 0.307, 'eval_steps_per_second': 0.051, 'epoch': 5.0}
+ 50%|██████████████████████████████████████                                      | 2745/5490 [8:20:46<22:34,  2.03it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.3643, 'grad_norm': 2.4226653575897217, 'learning_rate': 9.071038251366122e-06, 'epoch': 5.46}
+ 60%|█████████████████████████████████████████████▌                              | 3294/5490 [9:25:41<16:56,  2.16it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.48532548546791077, 'eval_rouge-1': 49.8422, 'eval_rouge-2': 25.0516, 'eval_rouge-l': 34.9932, 'eval_gen_len': 164.6248, 'eval_runtime': 3032.1092, 'eval_samples_per_second': 0.362, 'eval_steps_per_second': 0.06, 'epoch': 6.0}
+ 60%|█████████████████████████████████████████████                              | 3294/5490 [10:16:13<16:56,  2.16it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.3238, 'grad_norm': 2.65415620803833, 'learning_rate': 7.249544626593807e-06, 'epoch': 6.38}
+ 70%|████████████████████████████████████████████████████▌                      | 3843/5490 [11:08:06<12:34,  2.18it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.4873065650463104, 'eval_rouge-1': 50.8821, 'eval_rouge-2': 26.3218, 'eval_rouge-l': 36.3449, 'eval_gen_len': 160.2577, 'eval_runtime': 2730.9734, 'eval_samples_per_second': 0.402, 'eval_steps_per_second': 0.067, 'epoch': 7.0}
+ 70%|████████████████████████████████████████████████████▌                      | 3843/5490 [11:53:37<12:34,  2.18it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.2993, 'grad_norm': 3.1916089057922363, 'learning_rate': 5.428051001821493e-06, 'epoch': 7.29}
+ 80%|████████████████████████████████████████████████████████████               | 4392/5490 [12:45:34<08:18,  2.20it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.4905695617198944, 'eval_rouge-1': 50.4851, 'eval_rouge-2': 25.7187, 'eval_rouge-l': 35.9106, 'eval_gen_len': 166.0501, 'eval_runtime': 2922.2897, 'eval_samples_per_second': 0.376, 'eval_steps_per_second': 0.063, 'epoch': 8.0}
+ 80%|████████████████████████████████████████████████████████████               | 4392/5490 [13:34:16<08:18,  2.20it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.2735, 'grad_norm': 2.4203264713287354, 'learning_rate': 3.6065573770491806e-06, 'epoch': 8.2}
+ 90%|███████████████████████████████████████████████████████████████████▌       | 4941/5490 [14:28:33<04:10,  2.19it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.4907337725162506, 'eval_rouge-1': 51.017, 'eval_rouge-2': 26.0933, 'eval_rouge-l': 36.1259, 'eval_gen_len': 167.5301, 'eval_runtime': 3054.2577, 'eval_samples_per_second': 0.359, 'eval_steps_per_second': 0.06, 'epoch': 9.0}
+ 90%|███████████████████████████████████████████████████████████████████▌       | 4941/5490 [15:19:27<04:10,  2.19it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+{'loss': 0.2645, 'grad_norm': 3.681400775909424, 'learning_rate': 1.7850637522768672e-06, 'epoch': 9.11}
+100%|███████████████████████████████████████████████████████████████████████████| 5490/5490 [16:15:41<00:00,  2.20it/s]The following columns in the evaluation set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Evaluation *****
+  Num examples = 1098
+  Batch size = 6
+{'eval_loss': 0.4916660189628601, 'eval_rouge-1': 51.2775, 'eval_rouge-2': 26.6234, 'eval_rouge-l': 36.7381, 'eval_gen_len': 163.3725, 'eval_runtime': 2893.3367, 'eval_samples_per_second': 0.379, 'eval_steps_per_second': 0.063, 'epoch': 10.0}
+100%|███████████████████████████████████████████████████████████████████████████| 5490/5490 [17:03:54<00:00,  2.20it/s]The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+{'train_runtime': 64358.151, 'train_samples_per_second': 0.511, 'train_steps_per_second': 0.085, 'train_loss': 0.4479398911550831, 'epoch': 10.0}
+100%|███████████████████████████████████████████████████████████████████████████| 5490/5490 [17:52:38<00:00, 11.72s/it]
+Saving model checkpoint to output/adgen/6
+Some non-default generation parameters are set in the model config. These should go into a GenerationConfig file (https://huggingface.co/docs/transformers/generation_strategies#save-a-custom-decoding-strategy-with-your-model) instead. This warning will be raised to an exception in v4.41.
+Non-default generation parameters: {'max_length': 512, 'early_stopping': True, 'num_beams': 4, 'no_repeat_ngram_size': 3, 'forced_eos_token_id': 102}
+Configuration saved in output/adgen/6\config.json
+Configuration saved in output/adgen/6\generation_config.json
+Removed shared tensor {'model.shared.weight', 'model.decoder.embed_tokens.weight', 'lm_head.weight'} while saving. This should be OK, but check by verifying that you don't receive any warning while reloading
+Model weights saved in output/adgen/6\model.safetensors
+tokenizer config file saved in output/adgen/6\tokenizer_config.json
+Special tokens file saved in output/adgen/6\special_tokens_map.json
+***** train metrics *****
+  epoch                    =        10.0
+  train_loss               =      0.4479
+  train_runtime            = 17:52:38.15
+  train_samples            =        3290
+  train_samples_per_second =       0.511
+  train_steps_per_second   =       0.085
+The following columns in the test set don't have a corresponding argument in `CPTForConditionalGeneration.forward` and have been ignored: token_type_ids. If token_type_ids are not expected by `CPTForConditionalGeneration.forward`,  you can safely ignore this message.
+***** Running Prediction *****
+  Num examples = 1100
+  Batch size = 6
+100%|████████████████████████████████████████████████████████████████████████████████| 184/184 [48:39<00:00, 15.87s/it]
+
+C:\Users\Lenovo\Desktop\wxy\CPT-master\finetune\generation>
